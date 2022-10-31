@@ -6,6 +6,11 @@ export default function Home() {
 
   useEffect(() => {
     setLoading(true)
+
+    fetch(" https://jsonplaceholder.typicode.com/posts")
+    .then(res => res.json())
+    .then(data => setData(data))
+    .then(setLoading(false))
   }, [])
 
   if (isLoading) return <p className="text-gray-700 text-base">Fetching Posts...</p>
